@@ -1,268 +1,124 @@
-:root {
-    --primary-color-light: #f8f9fa;
-    --text-color-light: #333;
-    --accent-color-light: #2dd4bf;
-    --bg-color-light: #ffffff;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sathish N - Portfolio</title>
     
-    --primary-color-dark: #1a1a1a;
-    --text-color-dark: #ffffff;
-    --accent-color-dark: #14b8a6;
-    --bg-color-dark: #121212;
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
 
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    --glass-backdrop: blur(10px);
-}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content gradient-border" data-aos="fade-up">
+            <h1>Hello, I'm Sathish N</h1>
+            <p>Aspiring Software Developer & Tech Enthusiast</p>
+            <button class="cta-button">Download Resume</button>
+        </div>
+    </section>
 
-/* Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-image">
+                <img src="profile-image.jpg" alt="Sathish N">
+            </div>
+            <div class="about-text">
+                <p>A passionate software developer with expertise in web development and database management.</p>
+                <div class="education">
+                    <h3>Education</h3>
+                    <ul>
+                        <li>BCA - CGPA: X.XX</li>
+                        <li>Pre-University</li>
+                        <li>Class 10th</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
-    transition: background-color 0.3s, color 0.3s;
-    line-height: 1.6;
-}
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title" data-aos="fade-up">Skills & Tools</h2>
+        <div class="skills-grid">
+            <div class="skill-card fade-in" data-aos="fade-up">
+                <i class="fas fa-code"></i>
+                <h3>Programming</h3>
+                <p>SQL, Java, CSS, HTML, Python</p>
+            </div>
+            <div class="skill-card fade-in" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-tools"></i>
+                <h3>Tools</h3>
+                <p>PPT, Excel, DBMS</p>
+            </div>
+        </div>
+    </section>
 
-body.dark-mode {
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-dark);
-}
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title" data-aos="fade-up">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card slide-in-left" data-aos="fade-up">
+                <img src="project1.jpg" alt="Bike Rental System">
+                <div class="project-info">
+                    <h3>Bike Rental System</h3>
+                    <p>HTML, CSS, JavaScript, PHP, SQL, Bootstrap</p>
+                    <button class="project-btn">View Project</button>
+                </div>
+            </div>
+            <div class="project-card slide-in-left" data-aos="fade-up" data-aos-delay="100">
+                <img src="project2.jpg" alt="Login Page">
+                <div class="project-info">
+                    <h3>Login Page</h3>
+                    <p>HTML, CSS</p>
+                    <button class="project-btn">View Project</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 1rem;
-}
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+        <form class="contact-form" data-aos="fade-up" data-aos-delay="100" id="contactForm">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Send Message</button>
+        </form>
+    </section>
 
-/* Theme Toggle */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-backdrop);
-    -webkit-backdrop-filter: var(--glass-backdrop);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    width: 50px;
-    height: 50px;
-    animation: float 3s ease-in-out infinite;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--text-color-light);
-    padding: 10px;
-    border-radius: 50%;
-    transition: background-color 0.3s;
-}
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Sathish N. All rights reserved.</p>
+    </footer>
 
-.theme-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.dark-mode .theme-toggle {
-    color: var(--text-color-dark);
-}
-
-/* Add floating animation */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    padding: 0 20px;
-}
-
-.hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    margin-bottom: 1rem;
-}
-
-.hero-content p {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    margin-bottom: 2rem;
-}
-
-/* Buttons */
-.cta-button {
-    padding: 1rem 2rem;
-    background-color: var(--accent-color-light);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    background-color: var(--accent-color-dark);
-}
-
-/* Sections */
-section {
-    padding: 5rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-}
-
-/* About Section */
-.about-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    align-items: center;
-}
-
-.about-image img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 50%;
-    margin: 0 auto;
-    display: block;
-}
-
-/* Skills Section */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.skill-card {
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-    text-align: center;
-    background-color: var(--bg-color-light);
-}
-
-.dark-mode .skill-card {
-    background-color: var(--primary-color-dark);
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-}
-
-.skill-card i {
-    font-size: 2.5rem;
-    color: var(--accent-color-light);
-    margin-bottom: 1rem;
-}
-
-/* Projects Section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.8);
-    padding: 1rem;
-    transform: translateY(100%);
-    transition: transform 0.3s;
-}
-
-.project-card:hover .project-info {
-    transform: translateY(0);
-}
-
-/* Contact Section */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
-}
-
-.dark-mode .form-group input,
-.dark-mode .form-group textarea {
-    background-color: var(--primary-color-dark);
-    color: var(--text-color-dark);
-    border-color: #444;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--primary-color-light);
-}
-
-.dark-mode footer {
-    background-color: var(--primary-color-dark);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    section {
-        padding: 3rem 1rem;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .about-image {
-        margin-bottom: 2rem;
-    }
-} 
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
