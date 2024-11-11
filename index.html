@@ -1,220 +1,268 @@
-<!DOCTYPE html>
-<html lang="en" class="light-mode">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De-Google Your Life</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&display=swap');
-
-        :root {
-            --bg-color: #f0f0f0;
-            --text-color: #333;
-            --card-bg: #ffffff;
-            --card-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            --btn-bg: #007aff;
-            --btn-text: #ffffff;
-            --btn-hover: #0056b3;
-            --toggle-bg: #007aff;
-            --toggle-border: #ffffff;
-            --accent-color: #5ac8fa;
-            --frosted-bg: rgba(255, 255, 255, 0.7);
-        }
-
-        .dark-mode {
-            --bg-color: #1e1e1e;
-            --text-color: #f0f0f0;
-            --card-bg: #2c2c2c;
-            --card-shadow: 0 4px 20px rgba(255,255,255,0.1);
-            --btn-bg: #0a84ff;
-            --btn-text: #ffffff;
-            --btn-hover: #409cff;
-            --toggle-bg: #34aadc;
-            --toggle-border: #1e1e1e;
-            --accent-color: #5ac8fa;
-            --frosted-bg: rgba(0, 0, 0, 0.7);
-        }
-
-        body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            width: 100%;
-            background-color: var(--card-bg);
-            box-shadow: var(--card-shadow);
-            border-radius: 0 0 15px 15px;
-        }
-
-        .search-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .search-bar input {
-            width: 60%;
-            max-width: 600px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 25px;
-            font-size: 16px;
-            background-color: var(--frosted-bg);
-            backdrop-filter: blur(10px);
-            color: var(--text-color);
-        }
-
-        .search-bar button {
-            background-color: var(--btn-bg);
-            color: var(--btn-text);
-            border: none;
-            border-radius: 25px;
-            padding: 10px 20px;
-            margin-left: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .search-bar button:hover {
-            background-color: var(--btn-hover);
-        }
-
-        main {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        .category {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .category:hover {
-            transform: translateY(-5px);
-        }
-
-        .magic-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--btn-bg);
-            color: var(--btn-text);
-            border-radius: 25px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .magic-button:hover {
-            background-color: var(--btn-hover);
-            transform: scale(1.05);
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: var(--toggle-bg);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            color: var(--btn-text);
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            width: 100%;
-            background-color: var(--card-bg);
-            box-shadow: var(--card-shadow);
-            margin-top: auto;
-            border-radius: 15px 15px 0 0;
-        }
-
-        @media (max-width: 768px) {
-            .search-bar input {
-                width: 80%;
-            }
-
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌓</button>
-        <h1>De-Google Your Life</h1>
-        <h2>Discover the Best Privacy-Focused Alternatives</h2>
-        <p>Take control of your digital life with privacy-focused alternatives.</p>
-        <div class="search-bar">
-            <input type="text" placeholder="Search for alternatives..." aria-label="Search">
-            <button aria-label="Search">🔍</button>
-        </div>
-    </header>
+:root {
+    --primary-color-light: #f8f9fa;
+    --text-color-light: #333;
+    --accent-color-light: #2dd4bf;
+    --bg-color-light: #ffffff;
     
-    <main>
-        <div class="category">
-            <h2>Search Engines</h2>
-            <p>Take control of your search privacy!</p>
-            <a href="search-engines.html" class="magic-button">Explore Alternatives</a>
-        </div>
-        <div class="category">
-            <h2>Cloud Storage</h2>
-            <p>Keep your files safe and secure without Google.</p>
-            <a href="cloud-storage.html" class="magic-button">Find Ideal Storage</a>
-        </div>
-        <div class="category">
-            <h2>Email Services</h2>
-            <p>Protect your communications with secure email.</p>
-            <a href="email-services.html" class="magic-button">Discover Options</a>
-        </div>
-        <div class="category">
-            <h2>Productivity Tools</h2>
-            <p>Boost your workflow with privacy-focused apps.</p>
-            <a href="productivity-tools.html" class="magic-button">Explore Tools</a>
-        </div>
-    </main>
+    --primary-color-dark: #1a1a1a;
+    --text-color-dark: #ffffff;
+    --accent-color-dark: #14b8a6;
+    --bg-color-dark: #121212;
 
-    <footer>
-        <p>&copy; 2023 De-Google Your Life. All rights reserved.</p>
-        <p>Designed with privacy in mind </p>
-    </footer>
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --glass-backdrop: blur(10px);
+}
 
-    <script>
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark-mode');
-        }
-    </script>
-</body>
-</html>
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1rem;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    width: 50px;
+    height: 50px;
+    animation: float 3s ease-in-out infinite;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-color-light);
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .theme-toggle {
+    color: var(--text-color-dark);
+}
+
+/* Add floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.cta-button {
+    padding: 1rem 2rem;
+    background-color: var(--accent-color-light);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background-color: var(--accent-color-dark);
+}
+
+/* Sections */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+/* About Section */
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    text-align: center;
+    background-color: var(--bg-color-light);
+}
+
+.dark-mode .skill-card {
+    background-color: var(--primary-color-dark);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card i {
+    font-size: 2.5rem;
+    color: var(--accent-color-light);
+    margin-bottom: 1rem;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.8);
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.project-card:hover .project-info {
+    transform: translateY(0);
+}
+
+/* Contact Section */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+    background-color: var(--primary-color-dark);
+    color: var(--text-color-dark);
+    border-color: #444;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-color-light);
+}
+
+.dark-mode footer {
+    background-color: var(--primary-color-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 1rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        margin-bottom: 2rem;
+    }
+} 
